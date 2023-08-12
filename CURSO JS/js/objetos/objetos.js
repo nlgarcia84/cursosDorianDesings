@@ -144,21 +144,22 @@ const stringsData = {
 };
 
 //
-for (let i = 0; i < phrase.length; i++) {
+const phrase = stringsData.phrase;
+for (const char of phrase) {
   if (
-    i === 'a' ||
-    i === 'á' ||
-    i === 'e' ||
-    i === 'e' ||
-    i === 'i' ||
-    i === 'í' ||
-    i === 'o' ||
-    i === 'ó' ||
-    i === 'u' ||
-    i === 'ú'
+    char === 'a' ||
+    char === 'á' ||
+    char === 'e' ||
+    char === 'e' ||
+    char === 'i' ||
+    char === 'í' ||
+    char === 'o' ||
+    char === 'ó' ||
+    char === 'u' ||
+    char === 'ú'
   ) {
-    stringsData.firstFloor.vowels.push();
-  }
+    stringsData.firstFloor.vowels.push(char);
+  } else stringsData.secondFloor.consonants.push(char);
 }
 
 console.log(stringsData);
