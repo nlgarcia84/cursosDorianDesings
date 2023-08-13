@@ -144,22 +144,47 @@ const stringsData = {
 };
 
 //
-const phrase = stringsData.phrase;
+const phrase = stringsData.phrase.toLowerCase();
+const regexVowels = /[a|e|i|o|u|á|é|í|ó|ú]/;
+const regexConsonants = /[' '|,|.]/;
+
 for (const char of phrase) {
-  if (
-    char === 'a' ||
-    char === 'á' ||
-    char === 'e' ||
-    char === 'e' ||
-    char === 'i' ||
-    char === 'í' ||
-    char === 'o' ||
-    char === 'ó' ||
-    char === 'u' ||
-    char === 'ú'
-  ) {
+  if (regexVowels.test(char)) {
     stringsData.firstFloor.vowels.push(char);
-  } else stringsData.secondFloor.consonants.push(char);
+  } else if (!regexConsonants.test(char))
+    stringsData.secondFloor.consonants.push(char);
 }
 
-console.log(stringsData);
+for (let i = 0; i < phrase.length; i++) {
+  const ascii = phrase.charCodeAt(i);
+  stringsData.thirdFloor.asciiCode.push(ascii);
+}
+
+const splitedInWords = phrase.split(' ');
+stringsData.fourthFloor.wordsInLowercase.push(splitedInWords);
+
+const phraseUpper = stringsData.phrase.toUpperCase();
+const splitedInWordsUppercase = phraseUpper.split(' ');
+stringsData.fourthFloor.wordsInUppercase.push(splitedInWordsUppercase);
+
+const secretCode = stringsData.fifthFloor.secretCode;
+
+let stringModified;
+for (const char of phrase) {
+  if (char === 'a' || char === 'á') {
+    stringModified = phrase.replaceAll(char, 1);
+  }
+  if (char === 'e' || char === 'é') {
+    stringModified = phrase.replaceAll(char, 2);
+  }
+  if (char === 'i' || char === 'í') {
+    stringModified = phrase.replaceAll(char, 3);
+  }
+  if (char === 'o' || char === 'ó') {
+    stringModified = phrase.replaceAll(char, 4);
+  }
+  if (char === 'u' || char === 'ú') {
+    stringModified = phrase.replaceAll(char, 5);
+  }
+}
+console.log(stringModified);
