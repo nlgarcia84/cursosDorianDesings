@@ -143,15 +143,20 @@ const stringsData = {
   },
 };
 
+console.log(stringsData);
 //
 const phrase = stringsData.phrase.toLowerCase();
-const regexVowels = /[a|e|i|o|u|á|é|í|ó|ú]/;
-const regexConsonants = /[' '|,|.]/;
+const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+const consonants = 'bcdfghjklmnñpqrstvwxyz';
+
+const regexVowels = /[a|e|i|o|u|á|é|í|ó|ú]/gi;
+const regexConsonants = /[b|c|d|f|g|h|j|k|l|m|n||ñ|p|q|r|s|t|v|w|x|y|z]/gi;
+const regexSpecial = /[' '|,|.]/g;
 
 for (const char of phrase) {
   if (regexVowels.test(char)) {
     stringsData.firstFloor.vowels.push(char);
-  } else if (!regexConsonants.test(char))
+  } else if (!regexSpecial.test(char))
     stringsData.secondFloor.consonants.push(char);
 }
 
@@ -163,28 +168,16 @@ for (let i = 0; i < phrase.length; i++) {
 const splitedInWords = phrase.split(' ');
 stringsData.fourthFloor.wordsInLowercase.push(splitedInWords);
 
-const phraseUpper = stringsData.phrase.toUpperCase();
-const splitedInWordsUppercase = phraseUpper.split(' ');
-stringsData.fourthFloor.wordsInUppercase.push(splitedInWordsUppercase);
+const regexVowelA = /[aá]/gi;
+const regexVowelE = /[eé]/gi;
+const regexVowelI = /[ií]/gi;
+const regexVowelO = /[oó]/gi;
+const regexVowelU = /[uú]/gi;
 
-const secretCode = stringsData.fifthFloor.secretCode;
+const stringCodifiedVowelA = stringsData.phrase.replaceAll(regexVowelA, 1);
+const stringCodifiedVowelE = stringCodifiedVowelA.replaceAll(regexVowelE, 2);
+const stringCodifiedVowelI = stringCodifiedVowelE.replaceAll(regexVowelI, 3);
+const stringCodifiedVowelO = stringCodifiedVowelI.replaceAll(regexVowelO, 4);
+const stringCodifiedVowelU = stringCodifiedVowelO.replaceAll(regexVowelU, 5);
+const stringCodifiedConsonants = stringCodifiedVowelU.replaceAll(regexConsonants,);
 
-let stringModified;
-for (const char of phrase) {
-  if (char === 'a' || char === 'á') {
-    stringModified = phrase.replaceAll(char, 1);
-  }
-  if (char === 'e' || char === 'é') {
-    stringModified = phrase.replaceAll(char, 2);
-  }
-  if (char === 'i' || char === 'í') {
-    stringModified = phrase.replaceAll(char, 3);
-  }
-  if (char === 'o' || char === 'ó') {
-    stringModified = phrase.replaceAll(char, 4);
-  }
-  if (char === 'u' || char === 'ú') {
-    stringModified = phrase.replaceAll(char, 5);
-  }
-}
-console.log(stringModified);
