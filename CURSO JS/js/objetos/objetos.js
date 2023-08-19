@@ -179,5 +179,3 @@ const stringCodifiedVowelE = stringCodifiedVowelA.replaceAll(regexVowelE, 2);
 const stringCodifiedVowelI = stringCodifiedVowelE.replaceAll(regexVowelI, 3);
 const stringCodifiedVowelO = stringCodifiedVowelI.replaceAll(regexVowelO, 4);
 const stringCodifiedVowelU = stringCodifiedVowelO.replaceAll(regexVowelU, 5);
-const stringCodifiedConsonants = stringCodifiedVowelU.replaceAll(regexConsonants,);
-
