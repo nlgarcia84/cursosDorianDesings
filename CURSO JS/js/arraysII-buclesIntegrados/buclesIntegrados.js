@@ -54,10 +54,26 @@ arrayTen.forEach((number) => {
 
 // Crea una función que reciba una palabra e imprima por consola esa palabra pero con las vocales en mayúscula.
 
-let word = 'arbol';
-const regexVowels = /[aáeéiíoóuú]/g;
+// let word = 'arbol';
+// let wordArray = word.split('');
+// const regexVowels = /[aáeéiíoóuú]/g;
+// console.log(wordArray);
 
-word.forEach((letter) => {
-  const newWord = word.replaceAll(regexVowels, letter.toUpperCase());
-  console.log(newWord);
+// wordArray.forEach((letter) => {
+//   const newWord = wordArray.replaceAll(regexVowels, letter.toUpperCase());
+//   return newWord;
+// });
+
+// Crea una función que reciba un array de 10 números. Dentro de esa función crea dos arrays llamados even (pares) y odd (impares), después multiplica cada uno de los números del array recibido por un número aleatorio entre 1 y 10, si el resultado es par, guárdalo en el array de pares, si es impar, en el array de impares, al final, imprime los 3 arrays por consola.
+
+const arrayOfTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const even = [];
+const odd = [];
+
+arrayOfTen.forEach((number) => {
+  const multiplied = number * Math.floor(Math.random() * 10);
+  multiplied % 2 === 0 ? even.push(number) : odd.push(number);
 });
+console.log(arrayOfTen, even, odd);
+
+// Crea una función que reciba un array con 5 palabras, debes imprimir por consola un array que contenga la inicial y la última letra de cada palabra en mayúsculas, es decir, si nuestra función recibiera un array con ['hola', 'adios', 'gato', 'perro', 'casa'] deberá imprimir por consola ['H', 'A', 'A', 'S', 'G', 'O', 'P','O', 'C', 'A']
