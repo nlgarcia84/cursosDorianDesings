@@ -39,3 +39,25 @@ const suma = arrayTen.reduce((result, number) => {
 });
 
 console.log(suma);
+
+// Crea una función que reciba un array de 10 números, imprime por consola cada número, su cuadrado y su cubo en este formato:
+//  "Número: 2 - Cuadrado: 4 - Cubo: 8".
+
+arrayTen.forEach((number) => {
+  console.log(
+    `Número: ${number} - Cuadrado: ${Math.pow(number, 2)} - Cubo: ${Math.pow(
+      number,
+      3
+    )})`
+  );
+});
+
+// Crea una función que reciba una palabra e imprima por consola esa palabra pero con las vocales en mayúscula.
+
+let word = 'arbol';
+const regexVowels = /[aáeéiíoóuú]/g;
+
+word.forEach((letter) => {
+  const newWord = word.replaceAll(regexVowels, letter.toUpperCase());
+  console.log(newWord);
+});
