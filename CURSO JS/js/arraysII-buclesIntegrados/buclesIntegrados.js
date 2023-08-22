@@ -77,3 +77,10 @@ arrayOfTen.forEach((number) => {
 console.log(arrayOfTen, even, odd);
 
 // Crea una función que reciba un array con 5 palabras, debes imprimir por consola un array que contenga la inicial y la última letra de cada palabra en mayúsculas, es decir, si nuestra función recibiera un array con ['hola', 'adios', 'gato', 'perro', 'casa'] deberá imprimir por consola ['H', 'A', 'A', 'S', 'G', 'O', 'P','O', 'C', 'A']
+const arrayWithFiveWords = ['iMac', 'MBPro', 'iPad', 'MacPro', 'HomePod'];
+
+const firstLastLetter = arrayWithFiveWords.map((word) => {
+  const newArray = (word[0] + word[word.length - 1]);
+  return newArray;
+});
+console.log(firstLastLetter);
