@@ -48,7 +48,7 @@ arrayTen.forEach((number) => {
     `Número: ${number} - Cuadrado: ${Math.pow(number, 2)} - Cubo: ${Math.pow(
       number,
       3
-    )})`
+    )}`
   );
 });
 
@@ -101,5 +101,15 @@ testingFunction(tenNumbers);
 
 // Crea una función que reciba un array de 5 palabras y un número y te devuelva un array con las palabras que tienen esa longitud, por ejemplo si le envias (['hola', 'adios', 'gato', 'perro', 'casa'], 4), te devolverá un array con ['hola', 'gato', 'casa']
 
+const fiveWordsArray = ['hola', 'adios', 'gato', 'perro', 'casa'];
+const number = 4;
 
+const lengthFunction = (fiveWordsArray, number) => {
+  const arrayOfLength = fiveWordsArray.map((word) => {
+    if (word.length === number) {
+      return word;
+    }
+  })
+}
 
+console.log(lengthFunction(fiveWordsArray, number));
