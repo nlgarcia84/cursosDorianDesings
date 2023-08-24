@@ -104,14 +104,9 @@ testingFunction(tenNumbers);
 const fiveWordsArray = ['hola', 'adios', 'gato', 'perro', 'casa'];
 const number = 4;
 
-const lengthFunction = (fiveWordsArray, number) => {
+const arrayWithLength = fiveWordsArray.filter((word) => word.length === number);
 
-  const arrayWithLength = fiveWordsArray.filter((word) => word.length === number);
-
-  console.log(arrayWithLength);
-};
-
-lengthFunction(fiveWordsArray, number)
+console.log(arrayWithLength);
 
 // Crea una función que reciba un array de números y un número y te devuelva un array con los números que sean divisores de ese número
 
@@ -129,8 +124,17 @@ console.log(arrayDivisor);
     { name: 'Bob', age: 20 }
     ];
 */
+const ageArray = [
+  { name: 'John', age: 25 },
+  { name: 'Jane', age: 30 },
+  { name: 'Bob', age: 20 }
+];
 
+const ageFunction = ageArray.filter((object) => object.age < 30);
 
+console.log(ageFunction);
+
+// Crea una función que reciba un array relleno con números y te diga si todos son pares o no.
 
 
 
