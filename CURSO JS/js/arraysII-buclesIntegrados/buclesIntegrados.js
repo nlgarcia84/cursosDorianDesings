@@ -105,11 +105,20 @@ const fiveWordsArray = ['hola', 'adios', 'gato', 'perro', 'casa'];
 const number = 4;
 
 const lengthFunction = (fiveWordsArray, number) => {
-  const arrayOfLength = fiveWordsArray.map((word) => {
-    if (word.length === number) {
-      return word;
-    }
-  })
-}
 
-console.log(lengthFunction(fiveWordsArray, number));
+  const arrayWithLength = fiveWordsArray.filter((word) => word.length === number);
+
+  console.log(arrayWithLength);
+};
+
+lengthFunction(fiveWordsArray, number)
+
+// Crea una función que reciba un array de números y un número y te devuelva un array con los números que sean divisores de ese número
+
+
+
+
+
+
+
+
