@@ -136,6 +136,15 @@ console.log(ageFunction);
 
 // Crea una función que reciba un array relleno con números y te diga si todos son pares o no.
 
+const fillArray = [22, 12, 2, 52, 64, 34, 100];
+
+const fillTest = fillArray.every(number => number % 2 === 0);
+
+console.log(fillTest);
+
+// Crea una función que reciba un array de 5 palabras y las ordene en base a su longitud, de menor a mayor.
+
+
 
 
 
