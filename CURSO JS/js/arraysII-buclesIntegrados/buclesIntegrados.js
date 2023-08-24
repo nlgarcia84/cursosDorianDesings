@@ -115,6 +115,22 @@ lengthFunction(fiveWordsArray, number)
 
 // Crea una función que reciba un array de números y un número y te devuelva un array con los números que sean divisores de ese número
 
+const numbersArray = [20, 52, 15, 45, 10];
+const numberTest = 2;
+
+const arrayDivisor = numbersArray.filter((number) => number % numberTest === 0);
+
+console.log(arrayDivisor);
+
+/* Crea una función que reciba este array y te devuelva sólo los usuarios cuya edad sea menor de 30
+  const array = [
+    { name: 'John', age: 25 },
+    { name: 'Jane', age: 30 },
+    { name: 'Bob', age: 20 }
+    ];
+*/
+
+
 
 
 
