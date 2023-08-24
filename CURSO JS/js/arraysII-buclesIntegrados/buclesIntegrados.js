@@ -84,3 +84,22 @@ const newArray = arrayWithFiveWords.map((element) => {
   return newArray2;
 });
 console.log(newArray.join('').split(''));
+
+// Crea una función que reciba un array de 10 números y te diga si alguno es mayor de 5.
+
+const tenNumbers = [2, 10, 4, 1, 7, 3, 6, 7, 3, 5];
+
+const testingFunction = (tenNumbers) => {
+  tenNumbers.forEach((number) => {
+    if (number > 5) {
+      console.log(`${number} es mayor de 5`);
+    };
+  });
+};
+
+testingFunction(tenNumbers);
+
+// Crea una función que reciba un array de 5 palabras y un número y te devuelva un array con las palabras que tienen esa longitud, por ejemplo si le envias (['hola', 'adios', 'gato', 'perro', 'casa'], 4), te devolverá un array con ['hola', 'gato', 'casa']
+
+
+
