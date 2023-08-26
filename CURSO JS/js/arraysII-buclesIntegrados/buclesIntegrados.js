@@ -80,7 +80,8 @@ console.log(arrayOfTen, even, odd);
 const arrayWithFiveWords = ['hola', 'adios', 'gato', 'perro', 'casa'];
 
 const newArray = arrayWithFiveWords.map((element) => {
-  const newArray2 = (element[0].toUpperCase() + element[element.length - 1].toUpperCase());
+  const newArray2 =
+    element[0].toUpperCase() + element[element.length - 1].toUpperCase();
   return newArray2;
 });
 console.log(newArray.join('').split(''));
@@ -93,7 +94,7 @@ const testingFunction = (tenNumbers) => {
   tenNumbers.forEach((number) => {
     if (number > 5) {
       console.log(`${number} es mayor de 5`);
-    };
+    }
   });
 };
 
@@ -127,7 +128,7 @@ console.log(arrayDivisor);
 const ageArray = [
   { name: 'John', age: 25 },
   { name: 'Jane', age: 30 },
-  { name: 'Bob', age: 20 }
+  { name: 'Bob', age: 20 },
 ];
 
 const ageFunction = ageArray.filter((object) => object.age < 30);
@@ -138,16 +139,59 @@ console.log(ageFunction);
 
 const fillArray = [22, 12, 2, 52, 64, 34, 100];
 
-const fillTest = fillArray.every(number => number % 2 === 0);
+const fillTest = fillArray.every((number) => number % 2 === 0);
 
 console.log(fillTest);
 
 // Crea una función que reciba un array de 5 palabras y las ordene en base a su longitud, de menor a mayor.
 
+const fiveWords = ['libro', 'revista', 'ebook', 'pergamino', 'nota'];
 
+const orderFunction = fiveWords.sort((a, b) => a.length - b.length);
 
+console.log(orderFunction);
 
+// Crea una función que reciba una palabra e imprima la misma palabra en orden inverso conservando las mayúsculas y las minúsculas. Si recibe "Mariposas" deberá imprimir "sasopiraM". No se puede usar reverse() 😊 (investiga la función reduceRight)
 
+const inverseWord = (word) => {
+  const stringToArray = word.split('');
+  const newString = stringToArray.reduceRight((a, b) => a + b);
+  return newString;
+};
 
+console.log(inverseWord('Casa'));
 
+// ## Retos!!
 
+// Crea una función que reciba un array de números desordenados, de forma aleatoria, unos se multiplicarán por 2 y otros se dividirán por 2, mezcla ese array de forma aleatoria y después ordenalo de menor a mayor
+
+const unorderedArrayNumbers = [2, 6, 1, 8, 3, 5, 4, 7, 10, 9];
+
+const testFunction = (unorderedArrayNumbers) => {};
+
+// Crea una función que reciba un array de 5 números de 2 dígitos. La función debe ser capaz de sumar los digitos de cada número, es decir si yo le envío [21, 34, 87, 10, 28] la función tendrá que ser capaz de devolverme un array con [3, 7, 15, 1, 10]
+
+const fiveNumbersTwoDigits = [12, 21, 34, 23, 41];
+
+// const prueba = [1, 2, 3, 4];
+
+// const sumaN = prueba.reduce((result, pairN) => {
+//   return (result = result + pairN);
+// });
+
+// console.log(sumaN);
+
+// const finalFive = fiveNumbersTwoDigits.map((pairNumbers) => {
+//   const sumaPair = pairNumbers.reduce((a, b) => a + b);
+//   return sumaPair;
+// });
+
+// console.log(finalFive);
+
+const asap = 1234;
+const asapToString = asap.toString();
+const asapToArray = asapToString.split('');
+const sumarize = asapToArray.reduce((result, number) => {
+  return (result = result + number);
+});
+console.log(sumarize);
