@@ -1,68 +1,138 @@
 // Crea una función que reciba un array de números y muestre por consola cada número multiplicado por su índice en el array
 
-const numbers = [1, 2, 3, 4, 5];
-numbers.forEach((number, index) => console.log(number * index));
+const numbers = [6, 2, 3, 4, 5];
+
+const multiplyFunction = (numbers) => {
+  if (!Array.isArray(numbers)) {
+    console.log('Los datos introducidos no son correctos');
+    return;
+  }
+  numbers.forEach((number, index) => console.log(number * index));
+};
+
+multiplyFunction(numbers);
 
 // Crea una función que reciba un array de números y devuelva un array con cada número dividido por su índice en el array más 2, es decir index + 2
 
-const arrayNumbers = numbers.map((number, index) =>
-  Math.floor(number / index + 2)
-);
-console.log(arrayNumbers);
+const dividedFunction = (numbers) => {
+  if (!Array.isArray(numbers)) {
+    console.log('Los datos introducidos no son correctos');
+    return;
+  }
+  const arrayNumbers = numbers.map((number, index) =>
+    Math.round(number / (index + 2))
+  );
+  console.log(arrayNumbers);
+};
+dividedFunction(numbers);
 
 // Crea una función que reciba un array de palabras y devuelva un array con las mismas palabras en mayúsculas.
+const arrayCities = ['barcelona', 'madrid', 'zaragoza'];
 
-const words = ['barcelona', 'madrid', 'zaragoza'];
-const arrayWordsUpperCase = words.map((word) => word.toUpperCase());
-console.log(arrayWordsUpperCase);
+const toUpperCaseFunction = (arrayCities) => {
+  if (!Array.isArray(arrayCities)) {
+    console.log('Los datos introducidos no son correctos');
+    return;
+  }
+  const arrayWordsUpperCase = arrayCities.map((city) => city.toUpperCase());
+  console.log(arrayWordsUpperCase);
+};
+toUpperCaseFunction(arrayCities);
 
 // Crea una función que reciba un array de palabras y una letra. La función devolverá un array con las palabras que comiencen por esa letra, si no hay mostrará un mensaje por consola diciendo que ninguna palabra coincide.
 
-const letter = 'm';
-const filteredArray = words.filter((word) => word.startsWith(letter));
-filteredArray.length > 0
-  ? console.log(filteredArray)
-  : console.log('ninguna palabra coincide');
+const getArrayWords = (testArray, myLetter) => {
+  if (!Array.isArray(testArray)) {
+    console.log('El parámetro introducido no es correcto');
+    return;
+  }
+  if (typeof myLetter !== 'string') {
+    console.log('El parámetro introducido no es correcto');
+    return;
+  }
+
+  const normalizeMyLetter = myLetter.toLowerCase();
+
+  const arrayStart = testArray.some((elementOfTestArray) =>
+    elementOfTestArray.toLowerCase().startsWith(normalizeMyLetter)
+  );
+
+  if (!arrayStart) {
+    console.log('ninguna palabra coincide');
+    return;
+  }
+
+  const filteredArrayStart = testArray.filter((elementOfTestArray) =>
+    elementOfTestArray.toLowerCase().startsWith(normalizeMyLetter)
+  );
+  return filteredArrayStart;
+};
+
+console.log(getArrayWords(['manzana', 'sandia', 'melon'], 'S'));
 
 // Añade a la función anterior que el filtro funcione independientemente de mayusculas o minúsculas.
 
 // Crea una función que reciba un array de 10 números e imprima por consola la suma de todos los valores del array.
 
 const arrayTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-// let result = 0;
-// arrayTen.forEach((number) => {
-//   result = result + number;
-// });
-// console.log(result);
-const suma = arrayTen.reduce((result, number) => {
-  return (result = result + number);
-});
+const sumarizeFunction = (arrayTen) => {
+  if (!Array.isArray(arrayTen)) {
+    console.log('El parámetro introducido no es correcto');
+  }
+  if (arrayTen.length !== 10) {
+    console.log('El array introducido debe contener 10 números');
+  }
 
-console.log(suma);
+  const suma = arrayTen.reduce((result, number) => {
+    return (result = result + number);
+  });
+  return suma;
+};
+
+console.log(sumarizeFunction(arrayTen));
 
 // Crea una función que reciba un array de 10 números, imprime por consola cada número, su cuadrado y su cubo en este formato:
 //  "Número: 2 - Cuadrado: 4 - Cubo: 8".
-
-arrayTen.forEach((number) => {
-  console.log(
-    `Número: ${number} - Cuadrado: ${Math.pow(number, 2)} - Cubo: ${Math.pow(
-      number,
-      3
-    )}`
-  );
-});
+const arrayPows = (arrayTen) => {
+  if (!Array.isArray(arrayTen)) {
+    console.log('El parámetro introducido no es correcto');
+    return;
+  }
+  if (arrayTen.length !== 10) {
+    console.log('El array introducido debe contener 10 números');
+    return;
+  }
+  arrayTen.forEach((number) => {
+    console.log(
+      `Número: ${number} - Cuadrado: ${Math.pow(number, 2)} - Cubo: ${Math.pow(
+        number,
+        3
+      )}`
+    );
+  });
+};
+arrayPows([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
 // Crea una función que reciba una palabra e imprima por consola esa palabra pero con las vocales en mayúscula.
 
-// let word = 'arbol';
-// let wordArray = word.split('');
-// const regexVowels = /[aáeéiíoóuú]/g;
-// console.log(wordArray);
+const upperVowels = (word) => {
+  if (!Array.isArray(arrayTen)) {
+    console.log('El parámetro introducido no es correcto');
+    return;
+  }
+  const wordToArray = word.split('');
+  const regexVowels = /[aeiouáéíóú]/i;
 
-// wordArray.forEach((letter) => {
-//   const newWord = wordArray.replaceAll(regexVowels, letter.toUpperCase());
-//   return newWord;
-// });
+  const newArrayNey = wordToArray.map((letter) => {
+    if (regexVowels.test(letter)) {
+      return letter.toUpperCase();
+    } else {
+      return letter;
+    }
+  });
+  console.log(newArrayNey.join(''));
+};
+upperVowels('mariposa');
 
 // Crea una función que reciba un array de 10 números. Dentro de esa función crea dos arrays llamados even (pares) y odd (impares), después multiplica cada uno de los números del array recibido por un número aleatorio entre 1 y 10, si el resultado es par, guárdalo en el array de pares, si es impar, en el array de impares, al final, imprime los 3 arrays por consola.
 
