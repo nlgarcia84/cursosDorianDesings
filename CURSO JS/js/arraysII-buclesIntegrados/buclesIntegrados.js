@@ -136,57 +136,73 @@ upperVowels('mariposa');
 
 // Crea una función que reciba un array de 10 números. Dentro de esa función crea dos arrays llamados even (pares) y odd (impares), después multiplica cada uno de los números del array recibido por un número aleatorio entre 1 y 10, si el resultado es par, guárdalo en el array de pares, si es impar, en el array de impares, al final, imprime los 3 arrays por consola.
 
-const arrayOfTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const even = [];
-const odd = [];
 
-arrayOfTen.forEach((number) => {
-  const multiplied = number * Math.floor(Math.random() * 10);
-  multiplied % 2 === 0 ? even.push(number) : odd.push(number);
-});
-console.log(arrayOfTen, even, odd);
+const getArrayTenNumbers = (arrayOfTen) => {
+
+  const even = [];
+  const odd = [];
+
+  arrayOfTen.forEach((number) => {
+    const multiplied = number * Math.floor(Math.random() * 10);
+    multiplied % 2 === 0 ? even.push(number) : odd.push(number);
+  });
+  console.log(arrayOfTen, even, odd);
+}
+
+getArrayTenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
 // Crea una función que reciba un array con 5 palabras, debes imprimir por consola un array que contenga la inicial y la última letra de cada palabra en mayúsculas, es decir, si nuestra función recibiera un array con ['hola', 'adios', 'gato', 'perro', 'casa'] deberá imprimir por consola ['H', 'A', 'A', 'S', 'G', 'O', 'P','O', 'C', 'A']
-const arrayWithFiveWords = ['hola', 'adios', 'gato', 'perro', 'casa'];
+const getArrayFiveWords = (arrayWithFiveWords) => {
 
-const newArray = arrayWithFiveWords.map((element) => {
-  const newArray2 =
-    element[0].toUpperCase() + element[element.length - 1].toUpperCase();
-  return newArray2;
-});
-console.log(newArray.join('').split(''));
+  const newArray = arrayWithFiveWords.map((element) => {
+    const newArray2 =
+      element[0].toUpperCase() + element[element.length - 1].toUpperCase();
+    return newArray2;
+  });
+  console.log(newArray.join('').split(''));
+}
+
+getArrayFiveWords(['manzana', 'platano', 'fresa', 'naranja', 'piña']);
 
 // Crea una función que reciba un array de 10 números y te diga si alguno es mayor de 5.
 
-const tenNumbers = [2, 10, 4, 1, 7, 3, 6, 7, 3, 5];
+const getArrayWithTenNumbers = (tenNumbers) => {
 
-const testingFunction = (tenNumbers) => {
-  tenNumbers.forEach((number) => {
-    if (number > 5) {
-      console.log(`${number} es mayor de 5`);
-    }
-  });
-};
+  const testingFunction = (tenNumbers) => {
+    tenNumbers.forEach((number) => {
+      if (number > 5) {
+        console.log(`${number} es mayor de 5`);
+      }
+    });
+  };
 
-testingFunction(tenNumbers);
+  testingFunction(tenNumbers);
+}
+
+getArrayWithTenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
 // Crea una función que reciba un array de 5 palabras y un número y te devuelva un array con las palabras que tienen esa longitud, por ejemplo si le envias (['hola', 'adios', 'gato', 'perro', 'casa'], 4), te devolverá un array con ['hola', 'gato', 'casa']
 
-const fiveWordsArray = ['hola', 'adios', 'gato', 'perro', 'casa'];
-const number = 4;
+const getArrayFiveOne = (fiveWordsArray, number) => {
 
-const arrayWithLength = fiveWordsArray.filter((word) => word.length === number);
+  const arrayWithLength = fiveWordsArray.filter((word) => word.length === number);
 
-console.log(arrayWithLength);
+  console.log(arrayWithLength);
+}
+
+getArrayFiveOne(['amarillo', 'azul', 'rojo', 'negro', 'verde'], 4);
+
 
 // Crea una función que reciba un array de números y un número y te devuelva un array con los números que sean divisores de ese número
 
-const numbersArray = [20, 52, 15, 45, 10];
-const numberTest = 2;
+const numbersAndNumber = (numbersArray, numberTest) => {
 
-const arrayDivisor = numbersArray.filter((number) => number % numberTest === 0);
+  const arrayDivisor = numbersArray.filter((number) => number % numberTest === 0);
 
-console.log(arrayDivisor);
+  console.log(arrayDivisor);
+}
+
+numbersAndNumber([20, 52, 15, 45, 10], 2);
 
 /* Crea una función que reciba este array y te devuelva sólo los usuarios cuya edad sea menor de 30
   const array = [
@@ -195,23 +211,35 @@ console.log(arrayDivisor);
     { name: 'Bob', age: 20 }
     ];
 */
+
 const ageArray = [
   { name: 'John', age: 25 },
   { name: 'Jane', age: 30 },
   { name: 'Bob', age: 20 },
 ];
 
-const ageFunction = ageArray.filter((object) => object.age < 30);
+const ageLessThirty = (ageArray) => {
 
-console.log(ageFunction);
+  const ageFunction = ageArray.filter((object) => object.age < 30);
+
+  console.log(ageFunction);
+}
+
+ageLessThirty(ageArray);
 
 // Crea una función que reciba un array relleno con números y te diga si todos son pares o no.
 
-const fillArray = [22, 12, 2, 52, 64, 34, 100];
+const getFillArray = (fillArray) => {
 
-const fillTest = fillArray.every((number) => number % 2 === 0);
+  const fillTest = fillArray.every((number) => number % 2 === 0);
+  if (fillTest) {
+    console.log('Todos son pares');
+  } else {
+    console.log('Todos no son pares');
+  }
+}
 
-console.log(fillTest);
+getFillArray([22, 12, 2, 52, 64, 31, 100]);
 
 // Crea una función que reciba un array de 5 palabras y las ordene en base a su longitud, de menor a mayor.
 
@@ -237,7 +265,7 @@ console.log(inverseWord('Casa'));
 
 const unorderedArrayNumbers = [2, 6, 1, 8, 3, 5, 4, 7, 10, 9];
 
-const testFunction = (unorderedArrayNumbers) => {};
+const testFunction = (unorderedArrayNumbers) => { };
 
 // Crea una función que reciba un array de 5 números de 2 dígitos. La función debe ser capaz de sumar los digitos de cada número, es decir si yo le envío [21, 34, 87, 10, 28] la función tendrá que ser capaz de devolverme un array con [3, 7, 15, 1, 10]
 
