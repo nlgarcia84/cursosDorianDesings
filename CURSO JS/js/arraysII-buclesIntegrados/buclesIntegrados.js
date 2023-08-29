@@ -291,14 +291,19 @@ const getArrayOfFiveWords = (fiveWords) => {
   const orderFunction = fiveWords.sort((a, b) => a.length - b.length);
   return orderFunction;
 }
-const finalTest = getArrayOfFiveWords(['libro', 'revista', 'ebook', 'pergamino', 'nota', 'nota2']);
+const finalTest = getArrayOfFiveWords(['libro', 'revista', 'ebook', 'pergamino', 'nota']);
 console.log(finalTest);
 
 // Crea una función que reciba una palabra e imprima la misma palabra en orden inverso conservando las mayúsculas y las minúsculas. Si recibe "Mariposas" deberá imprimir "sasopiraM". No se puede usar reverse() 😊 (investiga la función reduceRight)
 
 
 const inverseWord = (word) => {
+  if (typeof word !== 'string') {
+    console.log('El parámetro introducido no es un string');
+    return;
+  }
   const stringToArray = word.split('');
+  console.log(stringToArray);
   const newString = stringToArray.reduceRight((a, b) => a + b);
   console.log(newString);
 };
