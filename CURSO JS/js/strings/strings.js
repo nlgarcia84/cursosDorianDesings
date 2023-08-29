@@ -191,11 +191,43 @@ const randomized = (phrase) => {
   }
 
   const alphabet = 'abcdefghijklmnñopqrstuvwxyz';
-  const randomNumber = alphabet.charAt(Math.floor(Math.random() * 28));
+  console.log(alphabet.length);
+
+  const randomNumber = alphabet.charAt(Math.floor(Math.random() * alphabet.length + 1));
+  console.log(randomNumber);
   if (phrase.includes('a')) {
-    phrase.replaceAll('a', 'alphabet.charAt(randomNumber)');
+    phrase = phrase.replaceAll('a', randomNumber);
   }
-  console.log(phrase);
+  if (phrase.includes('A')) {
+    phrase = phrase.replaceAll('A', randomNumber.toUpperCase());
+  }
+  if (phrase.includes('e')) {
+    phrase = phrase.replaceAll('e', randomNumber);
+  }
+  if (phrase.includes('E')) {
+    phrase = phrase.replaceAll('E', randomNumber.toUpperCase());
+  }
+  if (phrase.includes('i')) {
+    phrase = phrase.replaceAll('i', randomNumber);
+  }
+  if (phrase.includes('I')) {
+    phrase = phrase.replaceAll('I', randomNumber.toUpperCase());
+  }
+  if (phrase.includes('o')) {
+    phrase = phrase.replaceAll('o', randomNumber);
+  }
+  if (phrase.includes('O')) {
+    phrase = phrase.replaceAll('O', randomNumber.toUpperCase());
+  }
+  if (phrase.includes('u')) {
+    phrase = phrase.replaceAll('u', randomNumber);
+  }
+  if (phrase.includes('U')) {
+    phrase = phrase.replaceAll('U', randomNumber.toUpperCase());
+  }
+  return phrase;
+
 };
 
-randomized('hola');
+const WordTest = randomized('Esto es una frase de prueba');
+console.log(WordTest);
