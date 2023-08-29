@@ -167,15 +167,4 @@ for (let i = 0; i < phrase.length; i++) {
 
 const splitedInWords = phrase.split(' ');
 stringsData.fourthFloor.wordsInLowercase.push(splitedInWords);
-
-const regexVowelA = /[aá]/gi;
-const regexVowelE = /[eé]/gi;
-const regexVowelI = /[ií]/gi;
-const regexVowelO = /[oó]/gi;
-const regexVowelU = /[uú]/gi;
-
-const stringCodifiedVowelA = stringsData.phrase.replaceAll(regexVowelA, 1);
-const stringCodifiedVowelE = stringCodifiedVowelA.replaceAll(regexVowelE, 2);
-const stringCodifiedVowelI = stringCodifiedVowelE.replaceAll(regexVowelI, 3);
-const stringCodifiedVowelO = stringCodifiedVowelI.replaceAll(regexVowelO, 4);
-const stringCodifiedVowelU = stringCodifiedVowelO.replaceAll(regexVowelU, 5);
+stringsData.fourthFloor.wordsInUppercase.push(splitedInWords.join(' ').toUpperCase().split(' '))
