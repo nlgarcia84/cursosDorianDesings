@@ -169,6 +169,11 @@ getArrayFiveWords(['manzana', 'platano', 'fresa', 'naranja', 'piña']);
 const getArrayWithTenNumbers = (tenNumbers) => {
 
   const testingFunction = (tenNumbers) => {
+    if (!Array.isArray(tenNumbers)) {
+      console.log('Los datos introducidos no son correctos');
+      return;
+    }
+
     tenNumbers.forEach((number) => {
       if (number > 5) {
         console.log(`${number} es mayor de 5`);
@@ -185,24 +190,47 @@ getArrayWithTenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
 const getArrayFiveOne = (fiveWordsArray, number) => {
 
-  const arrayWithLength = fiveWordsArray.filter((word) => word.length === number);
+  if (!Array.isArray(fiveWordsArray)) {
+    console.log('El parámetro introducido no es correcto');
+    return;
+  }
+  if (fiveWordsArray.length !== 5) {
+    console.log('La array introducida no tiene 5 elementos');
+    return;
+  }
+  if (typeof number !== 'number') {
+    console.log('El parámetro introducido no es un número');
+    return;
+  }
 
-  console.log(arrayWithLength);
+  const arrayWithLength = fiveWordsArray.filter((word) => word.length === number);
+  return arrayWithLength;
 }
 
-getArrayFiveOne(['amarillo', 'azul', 'rojo', 'negro', 'verde'], 4);
+const getArrayTest = getArrayFiveOne(['hola', 'adios', 'gato', 'perro', 'casa'], 4);
+console.log(getArrayTest);
+
 
 
 // Crea una función que reciba un array de números y un número y te devuelva un array con los números que sean divisores de ese número
 
 const numbersAndNumber = (numbersArray, numberTest) => {
+  if (!Array.isArray(numbersArray)) {
+    console.log('El parámetro introducido no es correcto');
+    return;
+  }
+  if (typeof numberTest !== 'number') {
+    console.log('El parámetro introducido no es un número');
+    return;
+  }
 
-  const arrayDivisor = numbersArray.filter((number) => number % numberTest === 0);
+  const arrayDivisor = numbersArray.filter((number) => numberTest % number === 0);
 
-  console.log(arrayDivisor);
+  return arrayDivisor;
 }
 
-numbersAndNumber([20, 52, 15, 45, 10], 2);
+const arrayDiv = numbersAndNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 20);
+console.log(arrayDiv);
 
 /* Crea una función que reciba este array y te devuelva sólo los usuarios cuya edad sea menor de 30
   const array = [
@@ -219,77 +247,70 @@ const ageArray = [
 ];
 
 const ageLessThirty = (ageArray) => {
+  if (!Array.isArray(ageArray)) {
+    console.log('El parámetro intriducido no es correcto');
+  }
 
   const ageFunction = ageArray.filter((object) => object.age < 30);
 
-  console.log(ageFunction);
+  return ageFunction;
 }
-
-ageLessThirty(ageArray);
+const ageFunction = ageLessThirty(ageArray);
+console.log(ageFunction);
 
 // Crea una función que reciba un array relleno con números y te diga si todos son pares o no.
 
 const getFillArray = (fillArray) => {
+  if (!Array.isArray(fillArray)) {
+    console.log('El parámetro intriducido no es correcto');
+    return;
+  }
 
   const fillTest = fillArray.every((number) => number % 2 === 0);
   if (fillTest) {
     console.log('Todos son pares');
   } else {
-    console.log('Todos no son pares');
+    console.log('No todos son pares');
   }
 }
 
-getFillArray([22, 12, 2, 52, 64, 31, 100]);
+getFillArray([22, 12, 2, 52, 64, 32, 100]);
 
 // Crea una función que reciba un array de 5 palabras y las ordene en base a su longitud, de menor a mayor.
 
-const fiveWords = ['libro', 'revista', 'ebook', 'pergamino', 'nota'];
+const getArrayOfFiveWords = (fiveWords) => {
+  if (!Array.isArray(fiveWords)) {
+    console.log('El parámetro intriducido no es correcto');
+    return;
+  }
+  if (fiveWords.length !== 5) {
+    console.log('El array introducido debe de tener 5 elementos');
+    return;
+  }
 
-const orderFunction = fiveWords.sort((a, b) => a.length - b.length);
-
-console.log(orderFunction);
+  const orderFunction = fiveWords.sort((a, b) => a.length - b.length);
+  return orderFunction;
+}
+const finalTest = getArrayOfFiveWords(['libro', 'revista', 'ebook', 'pergamino', 'nota', 'nota2']);
+console.log(finalTest);
 
 // Crea una función que reciba una palabra e imprima la misma palabra en orden inverso conservando las mayúsculas y las minúsculas. Si recibe "Mariposas" deberá imprimir "sasopiraM". No se puede usar reverse() 😊 (investiga la función reduceRight)
+
 
 const inverseWord = (word) => {
   const stringToArray = word.split('');
   const newString = stringToArray.reduceRight((a, b) => a + b);
-  return newString;
+  console.log(newString);
 };
 
-console.log(inverseWord('Casa'));
+inverseWord('Casa');
 
 // ## Retos!!
 
 // Crea una función que reciba un array de números desordenados, de forma aleatoria, unos se multiplicarán por 2 y otros se dividirán por 2, mezcla ese array de forma aleatoria y después ordenalo de menor a mayor
 
-const unorderedArrayNumbers = [2, 6, 1, 8, 3, 5, 4, 7, 10, 9];
 
-const testFunction = (unorderedArrayNumbers) => { };
+
 
 // Crea una función que reciba un array de 5 números de 2 dígitos. La función debe ser capaz de sumar los digitos de cada número, es decir si yo le envío [21, 34, 87, 10, 28] la función tendrá que ser capaz de devolverme un array con [3, 7, 15, 1, 10]
 
-const fiveNumbersTwoDigits = [12, 21, 34, 23, 41];
-
-// const prueba = [1, 2, 3, 4];
-
-// const sumaN = prueba.reduce((result, pairN) => {
-//   return (result = result + pairN);
-// });
-
-// console.log(sumaN);
-
-// const finalFive = fiveNumbersTwoDigits.map((pairNumbers) => {
-//   const sumaPair = pairNumbers.reduce((a, b) => a + b);
-//   return sumaPair;
-// });
-
-// console.log(finalFive);
-
-const asap = 1234;
-const asapToString = asap.toString();
-const asapToArray = asapToString.split('');
-const sumarize = asapToArray.reduce((result, number) => {
-  return (result = result + number);
-});
-console.log(sumarize);
