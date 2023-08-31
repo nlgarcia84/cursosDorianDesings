@@ -149,9 +149,11 @@ const phrase = stringsData.phrase.toLowerCase();
 const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 const consonants = 'bcdfghjklmnñpqrstvwxyz';
 
-const regexVowels = /[a|e|i|o|u|á|é|í|ó|ú]/gi;
-const regexConsonants = /[b|c|d|f|g|h|j|k|l|m|n||ñ|p|q|r|s|t|v|w|x|y|z]/gi;
+// EXPRESIONES REGULARES AQUI INICIO
+const regexVowels = /[aeiouàèìòùáéíóú]/gi;
+const regexConsonants = /[bcdfghjklmnñpqrstvwxyz]/gi;
 const regexSpecial = /[' '|,|.]/g;
+// FIN
 
 for (const char of phrase) {
   if (regexVowels.test(char)) {
@@ -167,4 +169,37 @@ for (let i = 0; i < phrase.length; i++) {
 
 const splitedInWords = phrase.split(' ');
 stringsData.fourthFloor.wordsInLowercase.push(splitedInWords);
-stringsData.fourthFloor.wordsInUppercase.push(splitedInWords.join(' ').toUpperCase().split(' '))
+stringsData.fourthFloor.wordsInUppercase.push(
+  splitedInWords.join(' ').toUpperCase().split(' ')
+);
+
+const regexA = /[aàá]/gi;
+const regexE = /[eèé]/gi;
+const regexI = /[iìí]/gi;
+const regexO = /[oòó]/gi;
+const regexU = /[uùú]/gi;
+
+const newPhraseA = phrase.replaceAll(regexA, '1');
+const newPhraseE = newPhraseA.replaceAll(regexE, '2');
+const newPhraseI = newPhraseE.replaceAll(regexI, '3');
+const newPhraseO = newPhraseI.replaceAll(regexO, '4');
+const newPhraseU = newPhraseO.replaceAll(regexU, '5');
+
+console.log(newPhraseU);
+
+const testsFunction = (newPhraseU) => {
+  newPhraseU.split('').forEach((letter) => {
+    const phraseCodify = newPhraseU.replaceAll(regexConsonants, '@');
+    console.log(phraseCodify);
+  });
+};
+
+testsFunction(newPhraseU);
+
+/*
+
+phrase.split('').forEach(letter => )
+
+
+
+*/
