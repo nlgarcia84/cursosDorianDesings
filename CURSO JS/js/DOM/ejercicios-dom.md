@@ -36,7 +36,7 @@ El resultado final deberá ser éste pero haciendo el cambio desde JavaScript.
     ......
 
 ```html
-<section>
+<section id="section">
   <h2>Sección principal</h2>
   <article>
     <h3>Artículo 1</h3>
