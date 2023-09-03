@@ -187,19 +187,26 @@ const newPhraseU = newPhraseO.replaceAll(regexU, '5');
 
 console.log(newPhraseU);
 
-const testsFunction = (newPhraseU) => {
-  newPhraseU.split('').forEach((letter) => {
-    const phraseCodify = newPhraseU.replaceAll(regexConsonants, '@');
-    console.log(phraseCodify);
-  });
-};
+let codifyPhrase;
+for (let index = 0; index < newPhraseU.length; index++) {
+  // console.log(newPhraseU[index]);
+  if (regexConsonants.test(newPhraseU)) {
+    codifyPhrase = newPhraseU.replaceAll(newPhraseU[index], newPhraseU[index - 1]);
+  }
+}
+console.log(codifyPhrase);
 
-testsFunction(newPhraseU);
+
 
 /*
 
-phrase.split('').forEach(letter => )
+
+Recorres la frase
+Compruebas si la letra en la que estás es una consonante
+Si lo es, la reemplazas por la consonante anterior
+En el caso de que la consonante sea una "b" la reemplazas por una z
 
 
 
 */
+

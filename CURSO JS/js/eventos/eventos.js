@@ -18,8 +18,8 @@ h1Element.addEventListener('mouseover', changeh1Text);
 
 const h1TextSize = (event) => {
   console.dir(event);
-  const width = event.currentTarget.screen.width;
-  const height = event.currentTarget.screen.height;
+  const width = event.target.innerWidth;
+  const height = event.target.innerHeight;
   h1Element.innerHTML = `La ventana tiene un ancho de ${width} px y un alto de ${height} px`;
 };
 
@@ -27,8 +27,14 @@ window.addEventListener('resize', h1TextSize);
 
 // Crea un p con el texto "esperando entrada de teclado" al pulsar cualquier tecla deberá poner "Has pulsado la tecla ...", como extra puedes poner si ha pulsado alguna combinación de teclas, alt + r, control + g, etc.
 
-const keyPress = () => {
-  console.log('hola');
+const keyPress = (event) => {
+  console.log(event);
+  const pressedKey = event.key;
+  paragraph.innerHTML = `Has pulsado la letra: ${pressedKey}`;
 };
+
 const paragraph = document.getElementById('keyboard');
-paragraph.addEventListener('keypress', keyPress);
+
+window.addEventListener('keypress', keyPress);
+
+// Crea un input range con un label, al mover el input range deberá escribir en el label el valor del input range. Recuerda poner un mínimo y un máximo al input range. https://developer.mozilla.org/es/docs/Web/HTML/Element/input/range
