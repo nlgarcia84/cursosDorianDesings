@@ -27,18 +27,28 @@
 
 // Crea un p con el texto "esperando entrada de teclado" al pulsar cualquier tecla deberá poner "Has pulsado la tecla ...", como extra puedes poner si ha pulsado alguna combinación de teclas, alt + r, control + g, etc.
 
+<<<<<<< HEAD
 // const paragraph = document.getElementById('keyboard');
 // const keyPress = (event) => {
 //   console.log(event);
 //   const pressedKey = event.key;
 //   paragraph.innerHTML = `Has pulsado la letra: ${pressedKey}`;
 // };
+=======
+const paragraph = document.getElementById('keyboard');
+const keyPress = (event) => {
+  console.log(event);
+  const pressedKey = event.key;
+  paragraph.innerHTML = `Has pulsado la letra: ${pressedKey}`;
+};
+>>>>>>> origin/main
 
 
 // window.addEventListener('keypress', keyPress);
 
 // Crea un input range con un label, al mover el input range deberá escribir en el label el valor del input range. Recuerda poner un mínimo y un máximo al input range. https://developer.mozilla.org/es/docs/Web/HTML/Element/input/range
 
+<<<<<<< HEAD
 // const rangeElement = document.getElementById('range');
 
 // const rangeValue = () => {
@@ -94,3 +104,11 @@
 const mainTextElement = document.getElementById('mainText');
 const copyTextElement = document.getElementById('copyText');
 
+=======
+const inputRange = document.getElementById('range');
+const rangeValue = (event) => {
+  console.log(event);
+}
+
+inputRange.addEventListener('slide', rangeValue);
+>>>>>>> origin/main
