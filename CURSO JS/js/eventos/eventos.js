@@ -27,28 +27,17 @@
 
 // Crea un p con el texto "esperando entrada de teclado" al pulsar cualquier tecla deberá poner "Has pulsado la tecla ...", como extra puedes poner si ha pulsado alguna combinación de teclas, alt + r, control + g, etc.
 
-<<<<<<< HEAD
 // const paragraph = document.getElementById('keyboard');
 // const keyPress = (event) => {
 //   console.log(event);
 //   const pressedKey = event.key;
 //   paragraph.innerHTML = `Has pulsado la letra: ${pressedKey}`;
 // };
-=======
-const paragraph = document.getElementById('keyboard');
-const keyPress = (event) => {
-  console.log(event);
-  const pressedKey = event.key;
-  paragraph.innerHTML = `Has pulsado la letra: ${pressedKey}`;
-};
->>>>>>> origin/main
-
 
 // window.addEventListener('keypress', keyPress);
 
 // Crea un input range con un label, al mover el input range deberá escribir en el label el valor del input range. Recuerda poner un mínimo y un máximo al input range. https://developer.mozilla.org/es/docs/Web/HTML/Element/input/range
 
-<<<<<<< HEAD
 // const rangeElement = document.getElementById('range');
 
 // const rangeValue = () => {
@@ -81,7 +70,6 @@ const keyPress = (event) => {
 //   }
 // }
 
-
 // dateElement.addEventListener('input', showDate);
 
 // Crea un formulario para calcular descuentos, pon dos inputs de tipo number, uno para el precio y otro para el descuento, añade un botón con el texto "Calcular". Al hacer click en el botón muestra un texto que diga "El precio original es ..., aplicando un descuento del ...% el precio final es de ..."
@@ -101,14 +89,39 @@ const keyPress = (event) => {
 
 // Crea dos inputs de texto que estén sincronizados, cuando escribas o borres en cualquiera de ellos en el otro también se escribirá y se borrará.
 
-const mainTextElement = document.getElementById('mainText');
-const copyTextElement = document.getElementById('copyText');
+// const mainTextElement = document.getElementById('mainText');
+// const copyTextElement = document.getElementById('copyText');
 
-=======
-const inputRange = document.getElementById('range');
-const rangeValue = (event) => {
-  console.log(event);
-}
+// const sincronizeMain = () => {
+//   copyTextElement.value = mainTextElement.value;
+// };
 
-inputRange.addEventListener('slide', rangeValue);
->>>>>>> origin/main
+// mainTextElement.addEventListener('input', sincronizeMain);
+
+// const sincronizeCopy = () => {
+//   mainTextElement.value = copyTextElement.value;
+// };
+
+// copyTextElement.addEventListener('input', sincronizeCopy);
+
+// Crea un array con 5 palabras. Añade un h2 a tu HTML y ponle un id. Añade dos botones con el texto previus y next respectívamente. Haz que los botones cambien el texto del h2 con las palabras del array, cuando llegues a la última volverás a la primera si pulsas next y cuando estés en la primera podrás volver a la última dandole a previous.
+
+const computersList = ['iMac', 'Mac Mini', 'Mac Studio', 'Mac Pro', 'iPhone'];
+
+const textElement = document.getElementById('text');
+const preButtonElement = document.getElementById('preButton');
+const nextButtonElement = document.getElementById('nextButton');
+
+nextButtonElement.addEventListener('click', () => {
+  for (let index = 0; index < computersList.length; index++) {
+    textElement.textContent = computersList[index];
+  }
+});
+
+preButtonElement.addEventListener('click', () => {
+  for (let index = 4; index >= 0; index--) {
+    textElement.textContent = computersList[index];
+  }
+});
+
+// Crea un formulario con dos inputs para username y password. Añade otro input de tipo checkbox que diga "Acepto los términos y condiciones." Pon un botón al formulario que permita enviarlo. El botón estará desactivado hasta que hayas escrito un nombre de más de tres caracteres, un password de más de 4 caracteres y el checkbox esté activado. La propiedad que permite activar o desactivar un elemento de formulario es "disabled" y es un boolean. Al enviar el formulario deberás mostrar por consola el mensaje "El usuario ... ha iniciado sesión".
