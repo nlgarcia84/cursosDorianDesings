@@ -106,44 +106,33 @@
 
 // Crea un array con 5 palabras. Añade un h2 a tu HTML y ponle un id. Añade dos botones con el texto previus y next respectívamente. Haz que los botones cambien el texto del h2 con las palabras del array, cuando llegues a la última volverás a la primera si pulsas next y cuando estés en la primera podrás volver a la última dandole a previous.
 
-// const computersList = ['iMac', 'Mac Mini', 'Mac Studio', 'Mac Pro', 'iPhone'];
+const computersList = ['iMac', 'Mac Mini', 'Mac Studio', 'Mac Pro', 'iPhone'];
 
-// const textElement = document.getElementById('text');
-// const preButtonElement = document.getElementById('preButton');
-// const nextButtonElement = document.getElementById('nextButton');
-
-// const textN = () => {
-//   computersList.forEach((computer) => {
-//     console.log(computer);
-//   });
-// };
-// nextButtonElement.addEventListener('click', textN);
+const textElement = document.getElementById('text');
+const preButtonElement = document.getElementById('preButton');
+const nextButtonElement = document.getElementById('nextButton');
 
 // Crea un formulario con dos inputs para username y password. Añade otro input de tipo checkbox que diga "Acepto los términos y condiciones." Pon un botón al formulario que permita enviarlo. El botón estará desactivado hasta que hayas escrito un nombre de más de tres caracteres, un password de más de 4 caracteres y el checkbox esté activado. La propiedad que permite activar o desactivar un elemento de formulario es "disabled" y es un boolean. Al enviar el formulario deberás mostrar por consola el mensaje "El usuario ... ha iniciado sesión".
 
-const formElement = document.getElementById('form');
-const usernameElement = document.getElementById('username');
-const passwordElement = document.getElementById('password');
-const checkboxElement = document.getElementById('condiciones');
-const submitElement = document.getElementById('submit');
+// const formElement = document.getElementById('form');
+// const usernameElement = document.getElementById('username');
+// const passwordElement = document.getElementById('password');
+// const checkboxElement = document.getElementById('condiciones');
+// const submitElement = document.getElementById('submit');
 
-const activateSubmit = () => {
-  if (
-    usernameElement.value.trim().length > 3 &&
-    passwordElement.value.trim().length > 4 &&
-    checkboxElement.checked === true
-  ) {
-    submitElement.disabled === false;
-  } else {
-    alert('error en los datos');
-  }
-};
+// const activateSubmit = () => {
+//   submitElement.disabled = false;
+// };
 
-submitElement.addEventListener('change', activateSubmit);
+// checkboxElement.addEventListener('change', () => {
+//   if (usernameElement.value.length > 3 && passwordElement.value.length > 4) {
+//     activateSubmit();
+//   }
+// });
 
-const handleSubmit = (ev) => {
-  ev.preventDefault();
-  console.log(`El usuario ${usernameElement.value} ha iniciado la sesión`);
-};
+// const handleSubmit = (ev) => {
+//   ev.preventDefault();
+//   console.log(`El usuario ${usernameElement.value} ha iniciado la sesión`);
+// };
 
-formElement.addEventListener('submit', handleSubmit);
+// formElement.addEventListener('submit', handleSubmit);
