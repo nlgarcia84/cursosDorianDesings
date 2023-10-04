@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Elementos del html -->
+    <div class="container">
+      <div class="password" id="password"></div>
+      <div class="length-father">
+        <p class="length" id="pwd-length">LENGTH : 4</p>
+      </div>
+
+      <div class="range-father">
+        <input
+          type="range"
+          id="range"
+          class="range"
+          ,
+          min="4"
+          max="32"
+          value="4"
+        />
+      </div>
+
+      <button class="button" id="button-generate-pwd">Generate Password</button>
+    </div>
+    <!-- Fin de los elementos-->
+    <script src="script.js"></script>
+  </body>
+</html>
